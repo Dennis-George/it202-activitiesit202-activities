@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    </head>
+ 
+  <body>
+     <canvas id="cl"> </canvas>
+        
+    <script>
+  
+
+      let c = document.querySelector("#cl");
+     console.log(c.width,c.height);
+      let ctx = c.getContext("2d");
+
+      let player = {x:100,y:100, radius:50};
+
+      const draw = () => {
+        ctx.clearRect(0,0,c.width,c.height)
+
+        player["x"]+=1;
+
+          if(player["x"]>=c.width + player["radius"]){
+            player["x"] = -player["radius"];
+          }
+
+        ctx.beginPath();
+        ctx.arc(player["x"],100,player["radius"],0,Math.PI*2);
+        ctx.closePath();
+        ctx.fillStyle = "blue";
+        ctx.fill();
+
+        window.requestAnimationFrame(draw);
+      }
+      
+      draw();
+    </script>
+  </body>
+</html>

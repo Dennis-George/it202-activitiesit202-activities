@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Canvas Demo</title></head>
+    <body>
+        <canvas id="canvas">
+        </canvas>
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            
+            canvas.width=400;
+            canvas.height=400;
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+        function Draw(x,y,z){
+            
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.strokeStyle = "white";
+            ctx.font = "30px Arial";
+            ctx.strokeText(z, x, y);      
+        }
+            
+        Draw(0,30,"D");
+            
+        Draw(40,40,"664867183");
+
+
+         let c = document.querySelector("#canvas");
+          let ctxv = c.getContext("2d");
+
+      let player = {x:100,y:100, radius:50};
+
+      function drawShape(){
+      
+
+        ctxv.beginPath();
+        ctxv.arc(player["x"],100,player["radius"],0,Math.PI*2);
+        ctxv.closePath();
+        ctxv.fillStyle = "green";
+        ctxv.fill();
+          
+        ctxv.closePath();
+      }
+            
+        drawShape();
+        </script>
+        
+    </body>
+</html>
